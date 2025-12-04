@@ -19,6 +19,21 @@ header {
   padding: 1rem;
 }
 
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background: #1f1f1f;
+}
+
+body.dark-mode .projects .project-card {
+  background: #1f1f1f;
+  color: #e0e0e0;
+}
+
 nav {
   display: flex;
   justify-content: space-between;

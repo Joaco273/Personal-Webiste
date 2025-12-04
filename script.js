@@ -13,3 +13,11 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
   // Clear form
   document.getElementById("contactForm").reset();
 });
+
+
+// Dark mode toggle
+const toggle = document.getElementById("darkModeToggle");
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  toggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+});
