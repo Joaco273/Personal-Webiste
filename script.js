@@ -1,33 +1,17 @@
-// Dark mode toggle
-/*const toggle = document.getElementById("darkModeToggle");
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  toggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+// Initialize ScrollReveal
+const sr = ScrollReveal({
+    distance: '60px',
+    duration: 2500,
+    delay: 400,
+    reset: false // Animations happen only once
 });
 
-// Contact form handler (About page)
-const form = document.getElementById("contactForm");
-if(form){
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formMessage = document.getElementById("formMessage");
-    formMessage.textContent = "Thanks! Your message has been sent.";
-    form.reset();
-  });
-}
-  */
+// Target elements
+sr.reveal('.hero h1', { delay: 200, origin: 'left' });
+sr.reveal('.hero p', { delay: 400, origin: 'left' });
+sr.reveal('.hero .btn', { delay: 600, origin: 'bottom', interval: 200 });
 
-// script.js
-ScrollReveal().reveal('.card', {
-  delay: 200,
-  distance: '50px',
-  origin: 'bottom',
-  interval: 200
-});
-
-ScrollReveal().reveal('.hero h1, .hero p, .hero a', {
-  delay: 300,
-  distance: '30px',
-  origin: 'top',
-  interval: 200
-});
+sr.reveal('.section-title', { origin: 'top' });
+sr.reveal('.glass-card', { origin: 'bottom', interval: 200 });
+sr.reveal('.project-card', { origin: 'bottom', interval: 200 });
+sr.reveal('.skill-tag', { origin: 'bottom', interval: 100 });

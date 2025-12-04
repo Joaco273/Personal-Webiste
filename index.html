@@ -3,147 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joaquin | Computer Science Portfolio</title>
+  <title>Joaquin Descotte | CS Portfolio</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+  <div class="background-shape shape-1"></div>
+  <div class="background-shape shape-2"></div>
+
+  <nav class="navbar navbar-expand-lg fixed-top glass-nav">
     <div class="container">
-      <a class="navbar-brand" href="#">Joaquin</a>
+      <a class="navbar-brand logo-text" href="#">Joaquin.dev</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+        <span class="fa fa-bars text-white"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
+        <a href="JoaquinDescotteResume.pdf" class="btn btn-glow ms-lg-3" download>
+            Resume <i class="fas fa-download"></i>
+        </a>
       </div>
     </div>
-    <section class="text-center py-4 bg-white">
-      <div class="container">
-        <a href="JoaquinDescotteResume.pdf" class="btn btn-outline-dark me-2" download>
-          <i class="fas fa-file-download"></i> Download Resume
-        </a>
-        <a href="https://github.com/Joaco273" class="btn btn-outline-dark me-2" target="_blank">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/joaquin-descotte-069783213/" class="btn btn-outline-dark" target="_blank">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-      </div>
-    </section>
   </nav>
 
-  <header class="hero text-center text-white d-flex align-items-center">
-    <div class="container">
-      <h1 class="display-4">Hi, I'm Joaquin</h1>
-      <p class="lead">Computer Science Student | Web Developer | Problem Solver</p>
-      <a href="#projects" class="btn btn-primary btn-lg mt-3">View My Work</a>
+  <header class="hero d-flex align-items-center">
+    <div class="container text-center text-white">
+      <h1 class="display-3 fw-bold mb-3">Hello, I'm <span class="text-highlight">Joaquin</span></h1>
+      <p class="lead mb-4">CS Student at Drexel University | Web Developer | Problem Solver</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="#projects" class="btn btn-glow">View Work</a>
+        <a href="https://github.com/Joaco273" target="_blank" class="btn btn-outline-glow"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/joaquin-descotte-069783213/" target="_blank" class="btn btn-outline-glow"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
     </div>
   </header>
 
-  <section id="about" class="py-5 bg-light">
+  <section id="about" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-4">About Me</h2>
-      <p class="lead text-center">I'm a passionate Computer Science student with a love for building elegant, user-focused web applications. I thrive on solving real-world problems through code and am always eager to learn new technologies.</p>
+      <div class="row align-items-center glass-card p-5">
+        <div class="col-lg-6">
+          <h2 class="section-title">About Me</h2>
+          <p class="text-light-muted">
+            I am a Computer Science student at <strong>Drexel University</strong> (Class of 2028) with a 4.0 GPA from Bucks County Community College[cite: 90, 93]. 
+            I have a passion for building elegant web applications and solving complex problems. 
+          </p>
+          <p class="text-light-muted">
+            Currently, I work as a <strong>STEM Tutor</strong>, helping students master Calculus, Physics, and CS concepts[cite: 111].
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="h5 text-highlight mb-3">Technical Arsenal</h3>
+          <div class="skills-grid">
+            <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+            <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+            <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+            <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+            <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+            <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Experience & Education</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item glass-card mb-4">
+          <div class="d-flex justify-content-between align-items-center flex-wrap">
+            <h4 class="mb-0">STEM Tutor</h4>
+            <span class="badge bg-highlight">Nov 2024 - Present</span>
+          </div>
+          <p class="text-highlight mb-2">Bucks County Community College</p>
+          <p class="small">Tutored 50+ hours in Math (up to Calc II), Physics, and CS. Designed personalized strategies to improve student confidence[cite: 111, 112].</p>
+        </div>
+
+        <div class="timeline-item glass-card mb-4">
+          <div class="d-flex justify-content-between align-items-center flex-wrap">
+            <h4 class="mb-0">Centurion Leader</h4>
+            <span class="badge bg-highlight">Feb 2025 - Sep 2025</span>
+          </div>
+          <p class="text-highlight mb-2">Bucks County Community College</p>
+          <p class="small">Assisted students from diverse backgrounds and handled confidential FERPA documents[cite: 115, 120, 121].</p>
+        </div>
+
+      </div>
     </div>
   </section>
 
   <section id="projects" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-4">Projects</h2>
-      <div class="row">
-        <!-- Project cards -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 shadow-sm">
-            <img src="project1.jpg" class="card-img-top" alt="Project 1">
+      <h2 class="section-title text-center mb-5">Featured Projects</h2>
+      <div class="row g-4">
+        
+        <div class="col-md-4">
+          <div class="card project-card h-100">
             <div class="card-body">
-              <h5 class="card-title">AI Resume Analyzer</h5>
-              <p class="card-text">Uses NLP to analyze resumes and provide actionable feedback.</p>
-              <a href="#" class="btn btn-outline-primary">GitHub</a>
+              <div class="icon-box mb-3"><i class="fas fa-utensils"></i></div>
+              <h5 class="card-title">Tasty Truths</h5>
+              <p class="card-text">A collaborative recipe platform where users can post recipes and interact with others. Built with a team of four.</p>
+              <div class="tech-stack mb-3">
+                <small>HTML</small> <small>CSS</small> <small>JS</small> <small>JSON</small>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline-glow">View Code</a>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 shadow-sm">
-            <img src="project2.jpg" class="card-img-top" alt="Project 2">
-            <div class="card-body">
-              <h5 class="card-title">React Portfolio Grid</h5>
-              <p class="card-text">A responsive React-based portfolio with filtering and animations.</p>
-              <a href="#" class="btn btn-outline-primary">GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 shadow-sm">
-            <img src="project3.jpg" class="card-img-top" alt="Project 3">
-            <div class="card-body">
-              <h5 class="card-title">Smart Contact Form</h5>
-              <p class="card-text">Secure, spam-protected contact form with backend integration.</p>
-              <a href="#" class="btn btn-outline-primary">GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="skills" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Skills</h2>
-      <div class="row text-center">
-        <div class="col-md-3 mb-3">
-          <i class="fab fa-html5 fa-3x text-danger"></i>
-          <h5 class="mt-2">HTML5</h5>
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <div class="card-body">
+              <div class="icon-box mb-3"><i class="fas fa-robot"></i></div>
+              <h5 class="card-title">AI Resume Analyzer</h5>
+              <p class="card-text">Uses NLP to analyze resumes and provide actionable feedback to improve hiring chances.</p>
+              <div class="tech-stack mb-3">
+                <small>Python</small> <small>NLP</small>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline-glow">View Code</a>
+            </div>
+          </div>
         </div>
-        <div class="col-md-3 mb-3">
-          <i class="fab fa-css3-alt fa-3x text-primary"></i>
-          <h5 class="mt-2">CSS3</h5>
+
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <div class="card-body">
+              <div class="icon-box mb-3"><i class="fab fa-react"></i></div>
+              <h5 class="card-title">React Portfolio</h5>
+              <p class="card-text">A responsive React-based portfolio template with filtering and smooth animations.</p>
+              <div class="tech-stack mb-3">
+                <small>React</small> <small>Bootstrap</small>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline-glow">View Code</a>
+            </div>
+          </div>
         </div>
-        <div class="col-md-3 mb-3">
-          <i class="fab fa-js-square fa-3x text-warning"></i>
-          <h5 class="mt-2">JavaScript</h5>
-        </div>
-        <div class="col-md-3 mb-3">
-          <i class="fab fa-react fa-3x text-info"></i>
-          <h5 class="mt-2">React</h5>
-        </div>
+
       </div>
     </div>
   </section>
 
   <section id="contact" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Contact Me</h2>
-      <form class="mx-auto" style="max-width: 600px;">
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" required>
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Message</label>
-          <textarea class="form-control" id="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
+    <div class="container text-center">
+      <div class="glass-card p-5 mx-auto" style="max-width: 700px;">
+        <h2 class="section-title mb-4">Get In Touch</h2>
+        <p class="mb-4">Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+        <a href="mailto:jud25@drexel.edu" class="btn btn-glow btn-lg">Say Hello</a>
+      </div>
     </div>
   </section>
 
-  <footer class="text-center py-4 bg-dark text-white">
-    <p class="mb-0">&copy; 2025 Joaquin. All rights reserved.</p>
+  <footer class="text-center py-4 text-white-50">
+    <p class="mb-0">&copy; 2025 Joaquin Descotte. Built with <i class="fas fa-heart text-danger"></i> & Caffeine.</p>
   </footer>
 
-  <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
