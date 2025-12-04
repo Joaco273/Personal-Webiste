@@ -12,6 +12,29 @@
 </head>
 <body>
 
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-3 fw-bold text-highlight" id="modalTitle">Project Title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img id="modalImage" src="" class="img-fluid rounded mb-4 d-none" alt="Project Preview">
+          <p id="modalDesc" class="lead text-light-muted">Description goes here...</p>
+          <div class="mt-4">
+              <h6 class="text-uppercase text-white-50 small">Technologies Used:</h6>
+              <div id="modalTech" class="d-flex flex-wrap gap-2 mt-2">
+                  </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+          <a id="modalLink" href="#" target="_blank" class="btn btn-glow">View on GitHub <i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="background-shape shape-1"></div>
   <div class="background-shape shape-2"></div>
 
@@ -108,18 +131,68 @@
       <div class="row g-4">
         
         <div class="col-md-4">
-          <div class="card project-card h-100">
-            <div class="card-body">
-              <div class="icon-box mb-3"><i class="fas fa-utensils"></i></div>
-              <h5 class="card-title">Tasty Truths</h5>
-              <p class="card-text">A collaborative recipe platform where users can post recipes and interact with others. Built with a team of four.</p>
-              <div class="tech-stack mb-3">
-                <small>HTML</small> <small>CSS</small> <small>JS</small> <small>JSON</small>
-              </div>
-              <a href="#" class="btn btn-sm btn-outline-glow">View Code</a>
-            </div>
-          </div>
+  <div class="card project-card h-100" 
+       style="cursor: pointer;"
+       data-bs-toggle="modal" 
+       data-bs-target="#projectModal"
+       data-title="Tasty Truths"
+       data-desc="A collaborative recipe platform where users can post recipes and interact with others. We focused heavily on creating a clean JSON data structure to store user submissions dynamically. Built with a team of four, I led the frontend architecture."
+       data-tech="HTML,CSS,JavaScript,JSON"
+       data-link="https://github.com/Joaco273/TastyTruths"> <div class="card-body">
+      <div class="icon-box mb-3"><i class="fas fa-utensils"></i></div>
+      <h5 class="card-title">Tasty Truths</h5>
+      <p class="card-text">A collaborative recipe platform where users can post recipes and interact with others.</p>
+      <div class="tech-stack mb-3">
+        <small>HTML</small> <small>CSS</small> <small>JS</small>
+      </div>
+      <span class="btn btn-sm btn-outline-glow stretched-link">View Details</span>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card project-card h-100" 
+        style="cursor: pointer;"
+        data-bs-toggle="modal" 
+        data-bs-target="#projectModal"
+        data-title="AI Resume Analyzer"
+        data-desc="This tool uses Natural Language Processing (NLP) to scan resumes against job descriptions. It provides a match percentage and suggests keywords to improve the applicant's odds."
+        data-tech="Python,NLP,Pandas,Flask"
+        data-link="https://github.com/Joaco273">
+        
+      <div class="card-body">
+        <div class="icon-box mb-3"><i class="fas fa-robot"></i></div>
+        <h5 class="card-title">AI Resume Analyzer</h5>
+        <p class="card-text">Uses NLP to analyze resumes and provide actionable feedback.</p>
+        <div class="tech-stack mb-3">
+          <small>Python</small> <small>NLP</small>
         </div>
+        <span class="btn btn-sm btn-outline-glow stretched-link">View Details</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card project-card h-100" 
+        style="cursor: pointer;"
+        data-bs-toggle="modal" 
+        data-bs-target="#projectModal"
+        data-title="React Portfolio"
+        data-desc="A high-performance portfolio template featuring dark mode, project filtering, and smooth Framer Motion animations. Fully responsive and mobile-ready."
+        data-tech="React,Bootstrap,Framer Motion"
+        data-link="https://github.com/Joaco273">
+        
+      <div class="card-body">
+        <div class="icon-box mb-3"><i class="fab fa-react"></i></div>
+        <h5 class="card-title">React Portfolio</h5>
+        <p class="card-text">A responsive React-based portfolio with filtering and animations.</p>
+        <div class="tech-stack mb-3">
+          <small>React</small> <small>Bootstrap</small>
+        </div>
+        <span class="btn btn-sm btn-outline-glow stretched-link">View Details</span>
+      </div>
+    </div>
+  </div>
 
         <div class="col-md-4">
           <div class="card project-card h-100">

@@ -72,12 +72,33 @@ h1, h2, h3, h4, h5 {
   padding: 1rem 0;
 }
 
-.glass-card {
+/* Update this section in style.css */
+
+.glass-card, .timeline-item {
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
   border: var(--glass-border);
   border-radius: 16px;
   box-shadow: var(--glass-shadow);
+  padding: 2rem; /* <--- This adds the breathing room you asked for */
+  margin-bottom: 1.5rem; /* Adds space between the cards */
+}
+
+/* Add this for the Modal styling (we will use this in step 2) */
+.modal-content {
+  background: rgba(18, 18, 18, 0.95); /* Very dark glass */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 20px;
+}
+
+.modal-header, .modal-footer {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-close {
+  filter: invert(1); /* Makes the 'X' icon white */
 }
 
 /* --- Hero Section --- */
