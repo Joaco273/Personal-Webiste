@@ -17,6 +17,15 @@ header {
   background: #222;
   color: #fff;
   padding: 1rem;
+  position: fixed;   /* keeps it always visible */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+body {
+  margin-top: 70px; /* prevents content from hiding behind the fixed nav */
 }
 
 body.dark-mode {
@@ -42,6 +51,7 @@ nav {
 
 .logo {
   font-size: 1.5rem;
+  color: white;
 }
 
 .nav-links {
