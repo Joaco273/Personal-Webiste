@@ -1,147 +1,182 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-color: #00adb5; /* Your preferred teal */
+  --secondary-color: #393e46;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background: #f4f4f9;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
-/* Navigation */
-header {
-  background: #222;
-  color: #fff;
-  padding: 1rem;
-  position: fixed;   /* keeps it always visible */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+/* --- Floating Background Animation --- */
+.background-shape {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.6;
 }
-
-body {
-  margin-top: 70px; /* prevents content from hiding behind the fixed nav */
-}
-
-body.dark-mode {
-  background: #121212;
-  color: #e0e0e0;
-}
-
-body.dark-mode header,
-body.dark-mode footer {
-  background: #1f1f1f;
-}
-
-body.dark-mode .projects .project-card {
-  background: #1f1f1f;
-  color: #e0e0e0;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  color: white;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-}
-
-.nav-links li {
-  margin-left: 1.5rem;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #00adb5;
-}
-
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(to right, #00adb5, #393e46);
-  color: #fff;
-}
-
-.hero h2 {
-  font-size: 2.5rem;
-}
-
-.hero p {
-  margin: 1rem 0;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
+.shape-1 {
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
   background: #00adb5;
+  animation: float 10s infinite alternate;
+}
+.shape-2 {
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: #7928ca; /* Purple accent for depth */
+  animation: float 15s infinite alternate-reverse;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5 {
   color: #fff;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.3s;
+  font-weight: 700;
 }
 
-.btn:hover {
-  background: #007a7c;
+.text-highlight {
+  color: var(--primary-color);
 }
 
-/* Sections */
-section {
-  padding: 3rem 2rem;
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #fff, var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
-.about, .projects, .contact {
-  max-width: 900px;
-  margin: auto;
+/* --- Glass Components --- */
+.glass-nav {
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(15px);
+  border-bottom: var(--glass-border);
+  padding: 1rem 0;
 }
 
-.projects .project-card {
-  background: #fff;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
 }
 
-/* Contact Form */
-form {
-  display: flex;
-  flex-direction: column;
+/* --- Hero Section --- */
+.hero {
+  height: 100vh;
+  position: relative;
+  /* Removed old image, using shapes now */
 }
 
-form input, form textarea {
-  margin: 0.5rem 0;
-  padding: 0.7rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+/* --- Buttons --- */
+.btn-glow {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 173, 181, 0.4);
 }
 
-form button {
-  margin-top: 1rem;
+.btn-glow:hover {
+  background: #00c4cf;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 173, 181, 0.6);
+  color: #fff;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #222;
+.btn-outline-glow {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-glow:hover {
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 173, 181, 0.4);
+}
+
+/* --- Project Cards --- */
+.project-card {
+  background: rgba(30, 30, 30, 0.6);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 15px;
+  color: #e0e0e0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 173, 181, 0.2);
+  border-color: var(--primary-color);
+}
+
+.icon-box {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.tech-stack small {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 5px;
+  font-size: 0.75rem;
+}
+
+/* --- Skills --- */
+.skill-tag {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.skill-tag:hover {
+  background: var(--primary-color);
+  color: #000;
+  font-weight: bold;
+}
+
+/* --- Nav Links --- */
+.navbar-nav .nav-link {
+  color: #aaa !important;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* --- Badge Override --- */
+.bg-highlight {
+  background-color: var(--primary-color);
   color: #fff;
 }
