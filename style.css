@@ -1,147 +1,115 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background: #f4f4f9;
-  color: #333;
-}
-
-/* Navigation */
-header {
-  background: #222;
+/* Glassmorphic Navbar */
+/*.navbar {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(34,34,34,0.7);
+  backdrop-filter: blur(10px);
   color: #fff;
-  padding: 1rem;
-  position: fixed;   /* keeps it always visible */
-  top: 0;
-  left: 0;
-  width: 100%;
   z-index: 1000;
-}
-
-body {
-  margin-top: 70px; /* prevents content from hiding behind the fixed nav */
-}
-
-body.dark-mode {
-  background: #121212;
-  color: #e0e0e0;
-}
-
-body.dark-mode header,
-body.dark-mode footer {
-  background: #1f1f1f;
-}
-
-body.dark-mode .projects .project-card {
-  background: #1f1f1f;
-  color: #e0e0e0;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  color: white;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-}
-
-.nav-links li {
-  margin-left: 1.5rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
+  font-weight: 500;
   transition: color 0.3s;
 }
-
-.nav-links a:hover {
-  color: #00adb5;
-}
+.nav-links a:hover { color: #00adb5; }
 
 /* Hero Section */
-.hero {
+/*.hero {
+  height: 100vh;
+  display: flex; justify-content: center; align-items: center;
+  background: linear-gradient(135deg, #00adb5, #393e46);
+  color: #fff;
   text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(to right, #00adb5, #393e46);
-  color: #fff;
+  padding: 2rem;
 }
 
-.hero h2 {
-  font-size: 2.5rem;
+.hero h1 {
+  font-size: 3rem;
 }
+.highlight { color: #ffdd57; }
 
-.hero p {
-  margin: 1rem 0;
+.hero-buttons {
+  margin-top: 2rem;
 }
-
-.btn {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  background: #00adb5;
-  color: #fff;
-  border-radius: 5px;
+.btn, .btn-outline {
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
   text-decoration: none;
-  transition: background 0.3s;
+  font-weight: bold;
+  transition: all 0.3s;
 }
+.btn { background: #00adb5; color: #fff; }
+.btn:hover { background: #007a7c; }
+.btn-outline { border: 2px solid #fff; color: #fff; }
+.btn-outline:hover { background: #fff; color: #393e46; }
 
-.btn:hover {
-  background: #007a7c;
+/* Project Cards */
+/*.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
 }
-
-/* Sections */
-section {
-  padding: 3rem 2rem;
-}
-
-.about, .projects, .contact {
-  max-width: 900px;
-  margin: auto;
-}
-
-.projects .project-card {
+.project-card {
   background: #fff;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* Contact Form */
-form {
+/* Dark Mode */
+/*body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+body.dark-mode .project-card {
+  background: #1f1f1f;
+  color: #e0e0e0;
+}
+
+*/
+
+/* styles.css */
+body {
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg') center/cover no-repeat;
   display: flex;
-  flex-direction: column;
-}
-
-form input, form textarea {
-  margin: 0.5rem 0;
-  padding: 0.7rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-form button {
-  margin-top: 1rem;
-}
-
-/* Footer */
-footer {
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 1rem;
-  background: #222;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+
+.btn-outline-dark {
+  transition: all 0.3s ease;
+}
+
+.btn-outline-dark:hover {
+  background-color: #343a40;
   color: #fff;
 }

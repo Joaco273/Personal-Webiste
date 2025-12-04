@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me | Joaquin</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <nav>
-        <a href="index.html">
-            <h1 class="logo">Joaquin</h1>
-        </a>
-        <ul class="nav-links">
+    <nav class="navbar">
+      <a href="index.html" class="logo">Joaquin</a>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
       </ul>
+      <button id="darkModeToggle">🌙</button>
     </nav>
   </header>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I’m a Computer Science student with interests in web development, algorithms, and AI. 
-      I enjoy building projects that solve real-world problems and learning new technologies.
-    </p>
-
-    <div class="links">
-      <a href="resume.pdf" class="btn" download>Download Resume</a>
-      <a href="https://www.linkedin.com/in/joaquin-descotte-069783213/" target="_blank" class="btn">LinkedIn</a>
-      <a href="https://github.com/joaco273" target="_blank" class="btn">GitHub</a>
+  <section class="about-section">
+    <div class="about-left">
+      <h2>About Me</h2>
+      <p>
+        I'm a Computer Science student at Drexel University, passionate about web development,
+        algorithms, and AI. I love building real-world solutions and collaborating on open-source projects.
+      </p>
+      <div class="about-buttons">
+        <a href="resume.pdf" class="btn" download>📄 Resume</a>
+        <a href="https://www.linkedin.com/in/joaquin-descotte-069783213/" target="_blank" class="btn linkedin">LinkedIn</a>
+        <a href="https://github.com/joaco273" target="_blank" class="btn github">GitHub</a>
+      </div>
+    </div>
+    <div class="about-right">
+      <img src="avatar.png" alt="Joaquin's Avatar" class="avatar" />
     </div>
   </section>
 
   <section class="contact">
     <h2>Contact Me</h2>
     <form id="contactForm" action="https://formspree.io/f/abcdxyz" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
+      <input type="text" name="name" id="name" placeholder="Your Name" required />
+      <input type="email" name="email" id="email" placeholder="Your Email" required />
+      <textarea name="message" id="message" placeholder="Your Message" required></textarea>
       <button type="submit" class="btn">Send</button>
     </form>
     <p id="formMessage"></p>
