@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Joaquin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+        <a href="index.html">
+            <h1 class="logo">Joaquin</h1>
+        </a>
+        <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a Computer Science student with interests in web development, algorithms, and AI. 
+      I enjoy building projects that solve real-world problems and learning new technologies.
+    </p>
+
+    <div class="links">
+      <a href="resume.pdf" class="btn" download>Download Resume</a>
+      <a href="https://www.linkedin.com/in/joaquin-descotte-069783213/" target="_blank" class="btn">LinkedIn</a>
+      <a href="https://github.com/joaco273" target="_blank" class="btn">GitHub</a>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm" action="https://formspree.io/f/abcdxyz" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+    <p id="formMessage"></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Joaquin | Computer Science Student</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
