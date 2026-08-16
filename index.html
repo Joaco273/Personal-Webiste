@@ -1,246 +1,819 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joaquin Descotte | CS Portfolio</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <link rel="stylesheet" href="style.css" />
+  <title>Joaquin Descotte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #21262d;
+      --accent: #3b82f6;
+      --accent-dim: #1d4ed8;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --tag-bg: #1f2937;
+      --tag-text: #93c5fd;
+      --green: #22c55e;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* LAYOUT */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 80px 0 40px;
+    }
+
+    /* HERO */
+    #hero {
+      padding-top: 140px;
+      padding-bottom: 80px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent-dim);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--muted);
+      background: var(--surface);
+    }
+
+    /* SECTION HEADERS */
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 4px;
+      border: 1px solid rgba(59, 130, 246, 0.15);
+    }
+
+    /* EXPERIENCE */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .exp-card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      gap: 1rem;
+    }
+
+    .exp-role {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 0.15rem;
+    }
+
+    .exp-company {
+      color: var(--accent);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .exp-bullets li {
+      color: var(--muted);
+      font-size: 0.875rem;
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .project-card:hover {
+      border-color: rgba(59, 130, 246, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .project-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #161b22 0%, #1a2332 100%);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-icon {
+      font-size: 1.4rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .project-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .project-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--green);
+      border: 1px solid var(--green);
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .project-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+
+    .stack-tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+    }
+
+    /* EDUCATION */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .edu-school {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-degree {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    .edu-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .edu-gpa {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .edu-date {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 0.2rem;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .contact-box h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 2rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav {
+        padding: 0 1rem;
+      }
+
+      .nav-links {
+        gap: 1.25rem;
+      }
+
+      main {
+        padding: 0 1rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-photo {
+        display: none;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card.featured {
+        grid-column: span 1;
+      }
+
+      .edu-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .edu-right {
+        text-align: left;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fs-3 fw-bold text-highlight" id="modalTitle">Project Title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img id="modalImage" src="" class="img-fluid rounded mb-4 d-none" alt="Project Preview">
-          <p id="modalDesc" class="lead text-light-muted">Description goes here...</p>
-          <div class="mt-4">
-              <h6 class="text-uppercase text-white-50 small">Technologies Used:</h6>
-              <div id="modalTech" class="d-flex flex-wrap gap-2 mt-2">
-                  </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
-          <a id="modalLink" href="#" target="_blank" class="btn btn-glow">View on GitHub <i class="fab fa-github"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="background-shape shape-1"></div>
-  <div class="background-shape shape-2"></div>
-
-  <nav class="navbar navbar-expand-lg fixed-top glass-nav">
-    <div class="container">
-      <a class="navbar-brand logo-text" href="#">Joaquin.dev</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="fa fa-bars text-white"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-        <a href="JoaquinDescotteResume.pdf" class="btn btn-glow ms-lg-3" download>
-            Resume <i class="fas fa-download"></i>
-        </a>
-      </div>
-    </div>
+  <nav>
+    <a href="#hero" class="nav-logo">jd.dev</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <header class="hero d-flex align-items-center">
-    <div class="container text-center text-white">
-      <h1 class="display-3 fw-bold mb-3">Hello, I'm <span class="text-highlight">Joaquin</span></h1>
-      <p class="lead mb-4">CS Student at Drexel University | Web Developer | Problem Solver</p>
-      <div class="d-flex justify-content-center gap-3">
-        <a href="#projects" class="btn btn-glow">View Work</a>
-        <a href="https://github.com/Joaco273" target="_blank" class="btn btn-outline-glow"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/joaquin-descotte-069783213/" target="_blank" class="btn btn-outline-glow"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      </div>
-    </div>
-  </header>
+  <main>
 
-  <section id="about" class="py-5">
-    <div class="container">
-      <div class="row align-items-center glass-card p-5">
-        <div class="col-lg-6">
-          <h2 class="section-title">About Me</h2>
-          <p class="text-light-muted">
-            I am a Computer Science student at <strong>Drexel University</strong> (Class of 2028) with a 4.0 GPA from Bucks County Community College[cite: 90, 93]. 
-            I have a passion for building elegant web applications and solving complex problems. 
+    <!-- HERO -->
+    <section id="hero">
+      <p class="hero-eyebrow">// available for Spring/Summer 2027 co-op</p>
+      <h1 class="hero-name">Joaquin Descotte</h1>
+      <p class="hero-tagline">
+        CS student at Drexel University building ML systems, full-stack applications,
+        and AI-powered tools. Passionate about the intersection of data and real products.
+      </p>
+      <div class="hero-links">
+        <a href="https://github.com/Joaco273" target="_blank" class="btn btn-primary">
+          ↗ GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/joaquin-descotte-069783213/" target="_blank" class="btn btn-secondary">
+          LinkedIn
+        </a>
+        <a href="mailto:jud25@drexel.edu" class="btn btn-secondary">
+          jud25@drexel.edu
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <p class="section-label">01 // about</p>
+      <div class="divider"></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a junior at <strong>Drexel University</strong> (GPA 3.94) studying Computer Science,
+            with an Associate's degree from Bucks County Community College where I graduated with a
+            GPA of 4.0. I'm targeting co-op positions for Spring/Summer 2027.
           </p>
-          <p class="text-light-muted">
-            Currently, I work as a <strong>STEM Tutor</strong>, helping students master Calculus, Physics, and CS concepts[cite: 111].
+          <p>
+            My background spans ML engineering, full-stack development, and algorithmic trading.
+            I care about building things that actually work, not just demos, with clean code and
+            real data.
           </p>
-        </div>
-        <div class="col-lg-6">
-          <h3 class="h5 text-highlight mb-3">Technical Arsenal</h3>
-          <div class="skills-grid">
-            <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
-            <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-            <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
-            <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
-            <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
-            <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+          <p>
+            Outside of code I tutor 125+ hours in Math, Physics, and CS at BCCC,
+            and I hold four President's Honors List distinctions, the highest academic
+            distinction at the college.
+          </p>
+          <div class="skills-row">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">scikit-learn</span>
+            <span class="skill-tag">XGBoost</span>
+            <span class="skill-tag">FAISS</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">TDD</span>
           </div>
         </div>
+        <div class="about-photo">
+          <!-- Replace src with your actual photo -->
+          <span>Photo coming soon</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="experience" class="py-5">
-    <div class="container">
-      <h2 class="section-title text-center mb-5">Experience & Education</h2>
-      <div class="timeline">
-        
-        <div class="timeline-item glass-card mb-4">
-          <div class="d-flex justify-content-between align-items-center flex-wrap">
-            <h4 class="mb-0">STEM Tutor</h4>
-            <span class="badge bg-highlight">Nov 2024 - Present</span>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <p class="section-label">02 // experience</p>
+      <div class="divider"></div>
+      <div class="exp-list">
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Software Engineering Intern</div>
+              <div class="exp-company">Titan Asset Management · Yardley, PA</div>
+            </div>
+            <div class="exp-date">Dec 2025 – Jan 2026</div>
           </div>
-          <p class="text-highlight mb-2">Bucks County Community College</p>
-          <p class="small">Tutored 50+ hours in Math (up to Calc II), Physics, and CS. Designed personalized strategies to improve student confidence[cite: 111, 112].</p>
+          <ul class="exp-bullets">
+            <li>Engineered an end-to-end trading algorithm in Python using yfinance to ingest and analyze 60 days of
+              intraday market data.</li>
+            <li>Built a custom signal detection engine based on VWAP and high-volume candle analysis to identify long
+              and short opportunities.</li>
+            <li>Developed predictive models with Scikit-learn to optimize trade duration, exit prices, and dynamic
+              stop-loss thresholds.</li>
+            <li>Integrated ntfy.sh API for real-time mobile push notifications for trade signals including calculated
+              entry/exit targets.</li>
+          </ul>
         </div>
 
-        <div class="timeline-item glass-card mb-4">
-          <div class="d-flex justify-content-between align-items-center flex-wrap">
-            <h4 class="mb-0">Centurion Leader</h4>
-            <span class="badge bg-highlight">Feb 2025 - Sep 2025</span>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">STEM Tutor</div>
+              <div class="exp-company">Bucks County Community College · Newtown, PA</div>
+            </div>
+            <div class="exp-date">Nov 2024 – Present</div>
           </div>
-          <p class="text-highlight mb-2">Bucks County Community College</p>
-          <p class="small">Assisted students from diverse backgrounds and handled confidential FERPA documents[cite: 115, 120, 121].</p>
+          <ul class="exp-bullets">
+            <li>125+ hours tutoring Math (through Calculus II), Physics I & II, and Computer Science.</li>
+            <li>Design personalized strategies addressing individual challenges and fostering problem-solving
+              confidence.</li>
+          </ul>
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects" class="py-5">
-    <div class="container">
-      <h2 class="section-title text-center mb-5">Featured Projects</h2>
-      <div class="row g-4">
-        
-        <div class="col-md-4">
-  <div class="card project-card h-100" 
-       style="cursor: pointer;"
-       data-bs-toggle="modal" 
-       data-bs-target="#projectModal"
-       data-title="Tasty Truths"
-       data-desc="A collaborative recipe platform where users can post recipes and interact with others. We focused heavily on creating a clean JSON data structure to store user submissions dynamically. Built with a team of four, I led the frontend architecture."
-       data-tech="HTML,CSS,JavaScript,JSON"
-       data-link="https://github.com/Joaco273/TastyTruths"> <div class="card-body">
-      <div class="icon-box mb-3"><i class="fas fa-utensils"></i></div>
-      <h5 class="card-title">Tasty Truths</h5>
-      <p class="card-text">A collaborative recipe platform where users can post recipes and interact with others.</p>
-      <div class="tech-stack mb-3">
-        <small>HTML</small> <small>CSS</small> <small>JS</small>
-      </div>
-      <span class="btn btn-sm btn-outline-glow stretched-link">View Details</span>
-    </div>
-  </div>
-</div>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <p class="section-label">03 // projects</p>
+      <div class="divider"></div>
+      <div class="projects-grid">
 
-<div class="col-md-4">
-    <div class="card project-card h-100" 
-        style="cursor: pointer;"
-        data-bs-toggle="modal" 
-        data-bs-target="#projectModal"
-        data-title="AI Resume Analyzer"
-        data-desc="This tool uses Natural Language Processing (NLP) to scan resumes against job descriptions. It provides a match percentage and suggests keywords to improve the applicant's odds."
-        data-tech="Python,NLP,Pandas,Flask"
-        data-link="https://github.com/Joaco273">
-        
-      <div class="card-body">
-        <div class="icon-box mb-3"><i class="fas fa-robot"></i></div>
-        <h5 class="card-title">AI Resume Analyzer</h5>
-        <p class="card-text">Uses NLP to analyze resumes and provide actionable feedback.</p>
-        <div class="tech-stack mb-3">
-          <small>Python</small> <small>NLP</small>
-        </div>
-        <span class="btn btn-sm btn-outline-glow stretched-link">View Details</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="card project-card h-100" 
-        style="cursor: pointer;"
-        data-bs-toggle="modal" 
-        data-bs-target="#projectModal"
-        data-title="React Portfolio"
-        data-desc="A high-performance portfolio template featuring dark mode, project filtering, and smooth Framer Motion animations. Fully responsive and mobile-ready."
-        data-tech="React,Bootstrap,Framer Motion"
-        data-link="https://github.com/Joaco273">
-        
-      <div class="card-body">
-        <div class="icon-box mb-3"><i class="fab fa-react"></i></div>
-        <h5 class="card-title">React Portfolio</h5>
-        <p class="card-text">A responsive React-based portfolio with filtering and animations.</p>
-        <div class="tech-stack mb-3">
-          <small>React</small> <small>Bootstrap</small>
-        </div>
-        <span class="btn btn-sm btn-outline-glow stretched-link">View Details</span>
-      </div>
-    </div>
-  </div>
-
-        <div class="col-md-4">
-          <div class="card project-card h-100">
-            <div class="card-body">
-              <div class="icon-box mb-3"><i class="fas fa-robot"></i></div>
-              <h5 class="card-title">AI Resume Analyzer</h5>
-              <p class="card-text">Uses NLP to analyze resumes and provide actionable feedback to improve hiring chances.</p>
-              <div class="tech-stack mb-3">
-                <small>Python</small> <small>NLP</small>
-              </div>
-              <a href="#" class="btn btn-sm btn-outline-glow">View Code</a>
+        <!-- ValueIQ — featured -->
+        <div class="project-card featured">
+          <div class="project-top">
+            <span class="project-icon">🏠</span>
+            <div class="project-links">
+              <span class="project-badge">Live soon</span>
+              <a href="https://github.com/Joaco273/ValueIQ" target="_blank" class="project-link">GitHub ↗</a>
             </div>
           </div>
+          <div class="project-name">ValueIQ</div>
+          <p class="project-desc">
+            ML-powered home valuation with AI-driven negotiation strategy. Ridge regression model
+            (R² 0.95, RMSE $18k) trained on 2,927 Ames housing records. RAG layer uses FAISS +
+            sentence-transformers to retrieve the 5 most comparable sales from a vector store of
+            embedded property descriptions. Google Gemini generates grounded negotiation strategy
+            from the retrieved comps — not generic advice. Full-stack: FastAPI backend, React frontend.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">scikit-learn</span>
+            <span class="stack-tag">FAISS</span>
+            <span class="stack-tag">sentence-transformers</span>
+            <span class="stack-tag">Gemini API</span>
+            <span class="stack-tag">FastAPI</span>
+            <span class="stack-tag">React</span>
+          </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="card project-card h-100">
-            <div class="card-body">
-              <div class="icon-box mb-3"><i class="fab fa-react"></i></div>
-              <h5 class="card-title">React Portfolio</h5>
-              <p class="card-text">A responsive React-based portfolio template with filtering and smooth animations.</p>
-              <div class="tech-stack mb-3">
-                <small>React</small> <small>Bootstrap</small>
-              </div>
-              <a href="#" class="btn btn-sm btn-outline-glow">View Code</a>
+        <!-- Coverage IQ -->
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-icon">🏥</span>
+            <div class="project-links">
+              <a href="https://github.com/Joaco273/Coverage-IQ" target="_blank" class="project-link">GitHub ↗</a>
             </div>
+          </div>
+          <div class="project-name">Coverage IQ</div>
+          <p class="project-desc">
+            Full-stack health insurance AI platform built at a hackathon. Context-aware chatbot
+            interprets complex insurance policies. Features an interactive provider locator
+            via Mapbox GL and spending dashboards with Recharts.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Django</span>
+            <span class="stack-tag">TanStack Query</span>
+            <span class="stack-tag">Mapbox GL</span>
+          </div>
+        </div>
+
+        <!-- Banking Engine -->
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-icon">🏦</span>
+            <div class="project-links">
+              <a href="https://gitlab.com/joacodesco1/jud25-joaquin-descotte-winter-2026-001-se-201-course-project"
+                target="_blank" class="project-link">GitLab ↗</a>
+            </div>
+          </div>
+          <div class="project-name">Java Banking Engine</div>
+          <p class="project-desc">
+            High-integrity core banking system supporting Checking, Savings, and CD accounts
+            with automated interest accrual. 95%+ mutation coverage via PIT testing.
+            Built with strict TDD and GitLab CI/CD pipeline.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Java</span>
+            <span class="stack-tag">JUnit</span>
+            <span class="stack-tag">PIT Mutation</span>
+            <span class="stack-tag">GitLab CI/CD</span>
+            <span class="stack-tag">TDD</span>
           </div>
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="py-5">
-    <div class="container text-center">
-      <div class="glass-card p-5 mx-auto" style="max-width: 700px;">
-        <h2 class="section-title mb-4">Get In Touch</h2>
-        <p class="mb-4">Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-        <a href="mailto:jud25@drexel.edu" class="btn btn-glow btn-lg">Say Hello</a>
+    <!-- EDUCATION -->
+    <section id="education">
+      <p class="section-label">04 // education</p>
+      <div class="divider"></div>
+      <div class="edu-list">
+
+        <div class="edu-card">
+          <div>
+            <div class="edu-school">Drexel University</div>
+            <div class="edu-degree">B.S. Computer Science · Philadelphia, PA</div>
+          </div>
+          <div class="edu-right">
+            <div class="edu-gpa">GPA: 3.94</div>
+            <div class="edu-date">Expected Sept 2028</div>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div>
+            <div class="edu-school">Bucks County Community College</div>
+            <div class="edu-degree">A.S. Computer Science · Newtown, PA · President's Honors List (4×)</div>
+          </div>
+          <div class="edu-right">
+            <div class="edu-gpa">GPA: 4.00</div>
+            <div class="edu-date">Graduated May 2025</div>
+          </div>
+        </div>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="text-center py-4 text-white-50">
-    <p class="mb-0">&copy; 2025 Joaquin Descotte. Built with <i class="fas fa-heart text-danger"></i> & Caffeine.</p>
+    <!-- CONTACT -->
+    <section id="contact">
+      <p class="section-label">05 // contact</p>
+      <div class="divider"></div>
+      <div class="contact-box">
+        <h3>Let's connect</h3>
+        <p>
+          I'm actively looking for co-op opportunities for Spring/Summer 2027.
+          If you're working on something interesting, I'd love to hear about it.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:jud25@drexel.edu" class="btn btn-primary">Send an email</a>
+          <a href="https://www.linkedin.com/in/joaquin-descotte-069783213/" target="_blank"
+            class="btn btn-secondary">LinkedIn</a>
+          <a href="https://github.com/Joaco273" target="_blank" class="btn btn-secondary">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Joaquin Descotte · Built with intention, not a template
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
 </body>
+
 </html>
